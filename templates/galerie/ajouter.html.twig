@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter une photo - Galerie Photo{% endblock %}
+
+{% block body %}
+    {% include 'includes/navbar.html.twig' %}
+
+
+    <!-- Main content for adding photo -->
+    <div class="container mt-5">
+        <h1 class="text-center text-white">Ajouter une photo à la galerie</h1>
+
+        <form method="POST" enctype="multipart/form-data" class="mt-4">
+            {{ form_start(form) }}
+            <div class="form-group">
+                {{ form_label(form.file, 'Sélectionner une photo', {'label_attr': {'class': 'text-light'}}) }}
+                {{ form_widget(form.file, {'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(form.file) }}
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.orderNumber, 'Numéro d\'ordre', {'label_attr': {'class': 'text-light'}}) }}
+                {{ form_widget(form.orderNumber, {'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(form.orderNumber) }}
+            </div>
+
+            <button type="submit" class="btn btn-primary">Ajouter la photo</button>
+            {{ form_end(form) }}
+        </form>
+    </div>
+
+    <footer class="bg-dark text-white text-center py-4 mt-5">
+        <p>&copy; 2025 Galerie Photo. Tous droits réservés.</p>
+    </footer>
+
+  
+{% endblock %}

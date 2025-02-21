@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Galerie Photo - Accueil{% endblock %}
+
+{% block body %}
+    {% include 'includes/navbar.html.twig' %}
+
+
+    <div class="container mt-5">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1 class="text-white">Galerie Photo</h1>
+            <a href="{{ path('galerie_ajouter') }}" class="btn btn-primary">Ajouter une photo</a>
+        </div>
+
+        <div class="photo-gallery-container">
+            <div class="photo-gallery">
+                {% for photo in photos %}
+                    <div class="photo-card">
+                        <img src="{{ asset('uploads/photos/' ~ photo.filename) }}" alt="Photo" class="img-fluid">
+                        <div class="photo-info">
+                            <p class="text-white">Ajoutée le : {{ photo.createdAt|date('d/m/Y H:i') }}</p>
+                            <p class="text-white">Taille : {{ (photo.size / 1024)|number_format(2, ',', ' ') }} Ko</p>
+
+                            {% if app.user == photo.user %}
+                                <form method="post" action="{{ path('galerie_supprimer', {id: photo.id}) }}" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cette photo ?');">
+                                    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ photo.id) }}">
+                                    <button type="submit" class="btn btn-danger btn-sm">Supprimer</button>
+                                </form>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% else %}
+                    <p class="text-white">Aucune photo disponible.</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white text-center py-4 mt-5">
+        <p>&copy; 2025 Galerie Photo. Tous droits réservés.</p>
+    </footer>
+
+
+
+{% endblock %}

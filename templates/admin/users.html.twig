@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gestion des Utilisateurs{% endblock %}
+
+{% block body %}
+<h1>Gestion des Utilisateurs</h1>
+
+{% for message in app.flashes('success') %}
+    <div class="alert alert-success">{{ message }}</div>
+{% endfor %}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Email</th>
+            <th>Rôle</th>
+            <th>État</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for user in users %}
+        <tr>
+            <td>{{ user.id }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.roles|join(', ') }}</td>
+            <td>
+                {% if user.isLocked %}
+                    <span class="text-danger">Bloqué</span>
+                {% else %}
+                    <span class="text-success">Actif</span>
+                {% endif %}
+            </td>
+            <td>
+                <a href="{{ path('admin_user_delete', {id: user.id}) }}" 
+                   class="btn btn-danger btn-sm"
+                   onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur ?');">
+                   Supprimer
+                </a>
+
+                {% if user.isLocked %}
+                <a href="{{ path('admin_user_unlock', {id: user.id}) }}" 
+                   class="btn btn-warning btn-sm">
+                   Débloquer
+                </a>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand text-light" href="{{ path('home') }}">Galerie Photo</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                {% if is_granted('ROLE_ADMIN') %}
+                    <li><a class="nav-link text-light" href="{{ path('admin_users') }}">Gestion des utilisateurs</a></li>
+                {% endif %}
+
+                {% if app.user %}
+                    <a class="text-light" href="{{ path('galerie') }}">  Bienvenue, {{ app.user.username }} !  </a>
+                    <a class="nav-link text-light" href="{{ path('app_logout') }}">Déconnexion</a> 
+                {% else %}
+                <div class="d-flex gap-2">                  
+                     <a class="nav-link text-light" href="{{ path('app_register') }}">Inscription</a>
+                     <a class="nav-link text-light" href="{{ path('app_login') }}">Connexion</a>
+                </div>
+                {% endif %}
+            </li>
+        </ul>
+    </div>
+</nav>

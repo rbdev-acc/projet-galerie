@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil - Galerie Photo{% endblock %}
+
+{% block body %}
+    {% include 'includes/navbar.html.twig' %}
+
+
+    <div class="container mt-5">
+        <div class="row">
+            <!-- Liste des autres galeries à gauche -->
+            <div class="col-md-4">
+                <h2 class="text-white">Autres galeries</h2>
+                <ul class="list-group">
+                    {% for user in usersWithPhotos %}
+                        <li class="list-group-item">
+                            <a href="#">{{ user.username }}</a>
+                            <!-- On peut ajouter un lien pour voir les photos de cet utilisateur -->
+                        </li>
+                    {% else %}
+                        <p class="text-white">Aucune galerie disponible.</p>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <!-- Affichage de la galerie aléatoire à droite -->
+            <div class="col-md-8">
+                {% if randomUser %}
+                    <div class="text-center text-white">
+                        <h1 class="display-4 font-weight-bold">Galerie de {{ randomUser.username }}</h1>
+                        <div class="row">
+                            {% for photo in randomUserPhotos %}
+                                <div class="col-md-4 mb-4">
+                                    <div class="card">
+                                        <img src="{{ asset('uploads/photos/' ~ photo.filename) }}" class="card-img-top" alt="Photo">
+                                        <div class="card-body">
+                                            <p class="card-text">Ajoutée le : {{ photo.createdAt|date('d/m/Y H:i') }}</p>
+                                            <p class="card-text">Taille : {{ (photo.size / 1024)|number_format(2, ',', ' ') }} Ko</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% else %}
+                    <p class="text-white">Aucune galerie disponible pour le moment.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

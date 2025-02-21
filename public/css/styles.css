@@ -1,0 +1,226 @@
+/* Global styles for the website */
+body {
+    background-color: #212529;
+    color: #f8f9fa;
+    font-family: Arial, sans-serif;
+}
+
+/* Navbar styling */
+.navbar-dark .navbar-brand {
+    color: #f8f9fa;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: #f8f9fa;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: #adb5bd;
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+.btn-light {
+    background-color: #f8f9fa;
+    color: #212529;
+}
+
+.btn-light:hover {
+    background-color: #e2e6ea;
+}
+
+/* Form and labels */
+.form-control {
+    background-color: #343a40;
+    color: #f8f9fa;
+    border: 1px solid #495057;
+}
+
+.form-control:focus {
+    background-color: #495057;
+    color: #f8f9fa;
+    border-color: #007bff;
+    box-shadow: none;
+}
+
+.text-light {
+    color: #f8f9fa !important;
+}
+
+/* Container and content */
+.container {
+    margin-top: 50px;
+}
+
+footer {
+    background-color: #343a40;
+    color: #f8f9fa;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Styling for the photo gallery */
+.photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.photo-gallery img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.photo-gallery .photo-item {
+    position: relative;
+}
+
+.photo-gallery .photo-item .photo-actions {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.photo-gallery .photo-item .photo-actions button {
+    color: white;
+    background: transparent;
+    border: none;
+}
+
+body {
+    background-color: #212529;
+}
+
+.card-text{
+    color:black;
+}
+.container {
+    margin-top: 50px;
+}
+
+.form-label {
+    color: #f8f9fa;
+}
+
+.form-control {
+    background-color: #343a40;
+    color: #f8f9fa;
+    border: 1px solid #495057;
+}
+
+.form-control::placeholder {
+    color: #adb5bd;
+}
+
+.form-control:focus {
+    background-color: #343a40;
+    color: #f8f9fa;
+    border-color: #f8f9fa;
+    box-shadow: 0 0 0 0.2rem rgba(248, 249, 250, 0.25);
+}
+
+.btn-light {
+    background-color: #f8f9fa;
+    color: #212529;
+}
+
+.btn-light:hover {
+    background-color: #e2e6ea;
+    color: #212529;
+}
+
+.invalid-feedback p {
+    margin: 0;
+}
+
+.alert-info {
+    background-color: #17a2b8;
+    color: #fff;
+}
+
+body {
+    background-color: #212529;
+}
+
+/* Conteneur principal avec scroll horizontal */
+.photo-gallery-container {
+    overflow-x: auto;
+    padding-bottom: 10px;
+    max-width: 100%;
+    margin-bottom: 30px;
+}
+
+/* Damier 4 colonnes, avec scroll horizontal */
+.photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 colonnes */
+    grid-gap: 20px;
+    padding-bottom: 20px;
+    min-width: 100%; /* S'assure que la galerie s'étend au maximum */
+}
+
+/* Cartes des photos */
+.photo-card {
+    width: 100%;
+    background: #343a40;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.photo-card img {
+    width: 100%;
+    height: 200px;  /* Ajuste la hauteur des images */
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.photo-info {
+    margin-top: 10px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+}
+
+/* Scrollbar personnalisée */
+.photo-gallery-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.photo-gallery-container::-webkit-scrollbar-thumb {
+    background: #555;
+    border-radius: 4px;
+}
+
+.photo-gallery-container::-webkit-scrollbar-track {
+    background: #222;
+}
